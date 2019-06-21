@@ -19,6 +19,7 @@
 					'mysql:host='.$this->host.';dbname='.$this->dbname, 
 					$this->user, $this->password
 				);
+				$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}
 
 			catch(PDOException $e) 
