@@ -20,14 +20,26 @@
 			$this->conn = $db;
 		}
 
-		public function getPostsFromDB()
+		public function read()
 		{
-			$query = "SELECT * FROM " . $this->table;
+			$query = "SELECT 
+							 c.name as category_name,
+							 p.id,
+							 p.category_id,
+							 p.title,
+							 p.body,
+							 p.author,
+							 p.created_at
+							 FROM ".$this->table." p 
+							 LEFT JOIN 
+							 categories c ON p.category_id=c.id
+							 ORDER BY 
+							 p.created_at DESC";
+
 			$stmt = $this->conn->prepare($query);
+
 			$stmt->execute();
 			return $stmt;
 		}
 
 	}
-
-	
