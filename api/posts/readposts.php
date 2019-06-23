@@ -32,9 +32,10 @@
 			);
 			// array_push($post_arr['data'], $post_item);
 			array_push($post_arr, $post_item);
-			// echo json_encode($post_arr['data']);
-			echo json_encode($post_arr);
+			// echo json_encode($post_arr['data']);	
 		} 
+		
+		echo json_encode($post_arr);
 
 	} else {
 			echo json_encode(
